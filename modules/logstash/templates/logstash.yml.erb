@@ -1,0 +1,77 @@
+#### THIS FILE IS MANAGED BY PUPPET
+
+# ------------  Node identity ------------
+
+node.name: <%= @logstash_node_name %>
+
+# ------------ Data path ------------------
+# path.data:
+#
+# ------------ Pipeline Settings --------------
+# pipeline.id: main
+#
+pipeline.workers: <%= @logstash_pipeline_workers %>
+#
+pipeline.batch.size: <%= @logstash_pipeline_batchsize %>
+#
+pipeline.batch.delay: <%= @logstash_pipeline_batchdelay %>
+#
+pipeline.unsafe_shutdown: <%= @logstash_unsafe_shutdown %>
+#
+# ------------ Pipeline Configuration Settings --------------
+path.config: <%= @logstash_path_config %>
+#
+# config.string:
+#
+config.test_and_exit: <%= @logstash_testandexit %>
+#
+config.reload.automatic: <%= @logstash_autoreload %>
+#
+config.reload.interval: <%= @logstash_reloadinterval %>
+#
+config.debug: <%= @logstash_configdebug %>
+#
+# config.support_escapes: false
+#
+# ------------ Module Settings ---------------
+
+# ------------ Cloud Settings ---------------
+#
+# ------------ Queuing Settings --------------
+#
+# queue.type: memory
+#
+# path.queue:
+#
+# queue.page_capacity: 64mb
+#
+# queue.max_events: 0
+#
+# queue.max_bytes: 1024mb
+#
+# queue.checkpoint.acks: 1024
+#
+# queue.checkpoint.writes: 1024
+#
+# queue.checkpoint.interval: 1000
+#
+# ------------ Dead-Letter Queue Settings --------------
+# dead_letter_queue.enable: false
+#
+# dead_letter_queue.max_bytes: 1024mb
+#
+# path.dead_letter_queue:
+#
+# ------------ Metrics Settings --------------
+#
+# http.host: "127.0.0.1"
+#
+# http.port: 9600-9700
+#
+# ------------ Debugging Settings --------------
+log.level: <%= @logstash_loglevel %>
+#
+path.logs: <%= @logstash_logpath %>
+# ------------ Other Settings --------------
+# Where to find custom plugins
+# path.plugins: []

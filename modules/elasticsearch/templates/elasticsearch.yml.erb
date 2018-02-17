@@ -1,0 +1,29 @@
+### THIS FILE IS MANAGED BY PUPPET###
+# ======================== Elasticsearch Configuration =========================
+# ---------------------------------- Cluster -----------------------------------
+cluster.name: <%= @elasticsearch_clustername %>
+# ------------------------------------ Node ------------------------------------
+node.name: <%= @elasticsearch_nodename %>
+#
+node.attr.rack: <%= @elasticsearch_noderack %>
+# ----------------------------------- Paths ------------------------------------
+# Path to directory where to store the data (separate multiple locations by comma):
+#
+${path.data}
+#
+${path.logs}
+#
+# ----------------------------------- Memory -----------------------------------
+bootstrap.memory_lock: <%= @elasticsearch_memorylock %>
+# ---------------------------------- Network -----------------------------------
+network.host: <%= @elasticsearch_networkhost %>
+http.port: <%= @elasticsearch_httpport %>
+# --------------------------------- Discovery ----------------------------------
+discovery.zen.ping.unicast.hosts: [<%= @elasticsearch_unicast %>]
+discovery.zen.minimum_master_nodes: <%= @elasticsearch_minimum_masternodes %>
+# ---------------------------------- Gateway -----------------------------------
+gateway.recover_after_nodes: <%= @elasticsearch_recoverafter %>
+---- Various -----------------------------------
+# Require explicit names when deleting indices:
+#
+#action.destructive_requires_name: true
