@@ -1,1 +1,1 @@
-include bro
+hiera_include('classes')
