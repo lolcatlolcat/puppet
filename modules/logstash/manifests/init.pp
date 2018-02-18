@@ -15,7 +15,7 @@ class logstash(
     $logstash_xms		                      =   '2g',
     $logstash_xmx		                      =   '2g',
     
-)inherits logstash::params{
+){
     class { 'logstash::redis' :  } ->
     class { 'logstash::install' : } ->
     class { 'logstash::configs' : } ->
