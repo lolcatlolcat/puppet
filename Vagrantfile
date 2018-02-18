@@ -9,13 +9,11 @@ Vagrant.configure("2") do |config|
   e.vm.box_check_update = false
   e.vm.box              = "puppetlabs/ubuntu-16.04-64-puppet"
   e.vm.hostname         = "elastic"
- end
-
-###SET VIRTUALBOX SPECS###
-  config.vm.provider "virtualbox" do |v|
+  e.vm.provider "virtualbox" do |v|
     v.memory = 1024
     v.cpus = 3
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    end
   end
 
 ###PUPPET APPLY###
