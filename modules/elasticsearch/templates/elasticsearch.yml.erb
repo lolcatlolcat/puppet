@@ -6,6 +6,9 @@ cluster.name: <%= @elasticsearch_clustername %>
 node.name: <%= @elasticsearch_nodename %>
 #
 node.attr.rack: <%= @elasticsearch_noderack %>
+node.master: <%= @es_master_node %>
+node.data: <%= @es_data_node %>
+node.ingest: <%= @es_ingest_node %>
 # ----------------------------------- Paths ------------------------------------
 # Path to directory where to store the data (separate multiple locations by comma):
 #

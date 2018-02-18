@@ -12,4 +12,7 @@ $elasticsearch_java                       = '500m'
 $elasticsearch_httpport                   = '9200-9300'
 $es_mem_lock                              = 'unlimited'
 $es_max_files                             = '65535'
+$es_master_node                           = undef
+$es_ingest_node                           = undef
+$es_data_node                             = undef
 }

@@ -10,6 +10,9 @@ class elasticsearch (
     $elasticsearch_java                       = '500m',
     $es_mem_lock                              = 'unlimited',
     $es_max_files                             = '65535',
+    $es_master_node                           = undef,
+    $es_data_node                             = undef,
+    $es_ingest_node                           = undef,
 ) inherits elasticsearch::params {
     class { 'elasticsearch::install' : } ->
     class { 'elasticsearch::configs' : } ->
