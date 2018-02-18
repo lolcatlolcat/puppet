@@ -3,12 +3,14 @@
 
 Vagrant.configure("2") do |config|
 
+###DEFINE ELASTIC HOST###
  config.vm.define "elastic" do |e|
   e.vm.box              = "base"
   e.vm.box_check_update = false
   e.vm.box              = "puppetlabs/ubuntu-16.04-64-puppet"
   e.vm.hostname         = "elastic"
  end
+
 ###SET VIRTUALBOX SPECS###
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
@@ -18,13 +20,13 @@ Vagrant.configure("2") do |config|
 
 ###PUPPET APPLY###
   config.vm.synced_folder "hieradata", "/tmp/vagrant-puppet/hieradata"
-  config.vm.provision :puppet, :options => ["--yamldir /hieradata"] do |puppet|
-    puppet.manifests_path    = "manifests"
-    puppet.manifest_file     = "site.pp"
-    puppet.module_path       = "modules"
-    puppet.hiera_config_path = "hiera.yaml"
-    puppet.working_directory = "/tmp/vagrant-puppet/"
-    puppet.facter = {
+  config.vm.provision :puppet, :options => ["--yamldir /hieradata"] do |p|
+    p.manifests_path    = "manifests"
+    p.manifest_file     = "site.pp"
+    p.module_path       = "modules"
+    p.hiera_config_path = "hiera.yaml"
+    p.working_directory = "/tmp/vagrant-puppet/"
+    p.facter = {
     }
   end
 
