@@ -17,6 +17,7 @@ Vagrant.configure("2") do |config|
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
     end
   e.vm.network "forwarded_port", guest: 9200, host: 9200, host_ip: "127.0.0.1"
+  e.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
   end
 
 ###PUPPET APPLY###

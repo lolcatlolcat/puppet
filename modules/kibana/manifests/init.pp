@@ -8,9 +8,9 @@ class kibana(
   $nginx_worker_connections = '768',
   $nginx_access_log         = '/var/log/nginx/access.log',
   $nginx_error_log          = '/var/log/nginx/error.log',
-  $nginx_user               = 'www_data',
+  $nginx_user               = 'www-data',
 
-)inherits kibana::params {
+){
   class { 'kibana::nginx' : } ->
   class { 'kibana::install' : } ->
   class { 'kibana::configs' : } ->
