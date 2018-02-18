@@ -3,13 +3,12 @@
 
 Vagrant.configure("2") do |config|
 
-###BASE CONFIGS####
-  config.vm.box = "base"
-  config.vm.box_check_update = false
-  config.vm.box = "puppetlabs/ubuntu-16.04-64-puppet"
-  config.vm.hostname = "elastic"
-  config.vm.define "elastic"
-
+ config.vm.define "elastic" do |e|
+  e.vm.box              = "base"
+  e.vm.box_check_update = false
+  e.vm.box              = "puppetlabs/ubuntu-16.04-64-puppet"
+  e.vm.hostname         = "elastic"
+ end
 ###SET VIRTUALBOX SPECS###
   config.vm.provider "virtualbox" do |v|
     v.memory = 1024
