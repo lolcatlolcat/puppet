@@ -9,9 +9,9 @@ node.attr.rack: <%= @elasticsearch_noderack %>
 # ----------------------------------- Paths ------------------------------------
 # Path to directory where to store the data (separate multiple locations by comma):
 #
-${path.data}
-#
-${path.logs}
+path:
+    data: /var/lib/elasticsearch
+    logs: /var/log/elasticsearch
 #
 # ----------------------------------- Memory -----------------------------------
 bootstrap.memory_lock: <%= @elasticsearch_memorylock %>
@@ -23,7 +23,7 @@ discovery.zen.ping.unicast.hosts: [<%= @elasticsearch_unicast %>]
 discovery.zen.minimum_master_nodes: <%= @elasticsearch_minimum_masternodes %>
 # ---------------------------------- Gateway -----------------------------------
 gateway.recover_after_nodes: <%= @elasticsearch_recoverafter %>
----- Various -----------------------------------
+#---- Various -----------------------------------
 # Require explicit names when deleting indices:
 #
 #action.destructive_requires_name: true

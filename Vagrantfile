@@ -9,6 +9,8 @@ Vagrant.configure("2") do |config|
   e.vm.box_check_update = false
   e.vm.box              = "puppetlabs/ubuntu-16.04-64-puppet"
   e.vm.hostname         = "elastic"
+  e.vm.provision "shell",
+    inline: "apt install -y vim >/dev/null 2>&1"
   e.vm.provider "virtualbox" do |v|
     v.memory = 1024
     v.cpus = 3
