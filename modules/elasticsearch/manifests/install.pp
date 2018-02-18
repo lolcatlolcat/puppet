@@ -1,13 +1,6 @@
 class elasticsearch::install inherits elasticsearch {
   case $osfamily {
     'debian': {
-        exec { 'apt update -y' :
-          path    => '/bin:/sbin:/usr/bin:/usr/sbin',
-          command =>  'apt update -y',
-        } ->
-        package { 'openjdk-8-jre-headless' :
-          ensure  => installed,
-        } ->
         file { '/var/tmp/elasticsearch.deb' : 
           source  => 'puppet:///modules/elasticsearch/elasticsearch.deb',
           ensure  => present,  
@@ -25,9 +18,6 @@ class elasticsearch::install inherits elasticsearch {
       package { '/var/tmp/elasticsearch.rpm' :
         source  => '/var/tmp/elasticsearch.rpm',
         ensure  => installed,
-      }
-      package { 'java-1.7.0-openjdk' :
-        ensure => installed,
       }
     }
     default: {

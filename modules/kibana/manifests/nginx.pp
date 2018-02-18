@@ -1,5 +1,5 @@
 class kibana::nginx inherits kibana {
-  package { 'ngix' :
+  package { 'nginx' :
     ensure => installed,
   }
 }
