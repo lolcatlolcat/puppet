@@ -4,11 +4,15 @@ class elasticsearch::install inherits elasticsearch {
         file { '/var/tmp/elasticsearch.deb' : 
           source  => 'puppet:///modules/elasticsearch/elasticsearch.deb',
           ensure  => present,  
-        }
+        } ->
         package { '/var/tmp/elasticsearch.deb' :
-          source => '/var/tmp/elasticsearch.deb',
-          ensure => installed,
-        }
+          source  => '/var/tmp/elasticsearch.deb',
+          ensure  => installed,
+        } ->
+        exec { 'apt update -y' :
+          path    => '/bin:/usr/bin:/usr/sbin:/sbin',
+          command => 'apt update -y',
+        } ->
         package { 'default-jdk' :
           ensure  => installed,
         }
