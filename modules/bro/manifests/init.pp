@@ -5,6 +5,8 @@ class bro(
   $brotmp_dir           =    "/var/tmp/bro",
   $broinstall_dir       =    "/nsm/bro",
   $bro_workers          =    undef,
+  $bro_networks         =    undef,
+  $bro_local            =    undef,
 
 )inherits bro::params {
 	class { 'bro::prereqs' :  } ->

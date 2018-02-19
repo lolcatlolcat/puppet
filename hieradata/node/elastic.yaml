@@ -5,4 +5,8 @@ bro::bro_workers:
   - "[worker-1]"
   - type=worker
   - host=localhost
-  - interface=lo0
+  - interface=lo
+bro::bro_networks:
+  - 10.10.0.0/24  Private Network
+bro::bro_local:
+  - "@load tuning/json-logs"
