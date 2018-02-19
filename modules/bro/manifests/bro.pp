@@ -16,5 +16,12 @@ class bro::bro inherits bro {
     ensure        =>  'present',
     home          =>  "${broinstall_dir}",
     shell         =>  '/usr/sbin/nologin',
+  } ->
+  file  { 'Change permissions on bro':
+    ensure        =>  'directory',
+    owner         =>  'bro',
+    mode          =>  '0644',
+    path          =>  "${broinstall_dir}",
+    recurse       =>  true,
   }
 }
