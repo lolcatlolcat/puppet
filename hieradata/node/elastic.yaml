@@ -1,12 +1,18 @@
 ---
 classes:
-  - bro
-bro::bro_workers:
-  - "[worker-1]"
-  - type=worker
-  - host=localhost
-  - interface=lo
-bro::bro_networks:
-  - 10.10.0.0/24  Private Network
-bro::bro_local:
-  - "@load tuning/json-logs"
+  - sendmail
+sendmail::log_level: '9'
+sendmail::enable_ipv6_daemon: false
+sendmail::enable_ipv4_daemon: true
+sendmail::manage_sendmail_mc: true
+sendmail::mailertable::entries:
+  'site.com':
+    value: 'smtp:[155.6.4.9]'
+sendmail::access::entries:
+  'To:site.com':
+    value: 'RELAY'
+  '155.6.3.9':
+    value: 'RELAY'
+sendmail::features:
+  mailertable: {}
+  access_db: {}
