@@ -1,9 +1,8 @@
 ---
 classes:
-  - java
-  - elasticsearch
-  - kibana
-elasticsearch::es_master_node:  true
-elasticsearch::es_data_node:  true
-elasticsearch::es_ingest_node: true
-kibana::kibana_servername:  'frog'
+  - bro
+bro::bro_workers:
+  - "[worker-1]"
+  - type=worker
+  - host=localhost
+  - interface=lo0

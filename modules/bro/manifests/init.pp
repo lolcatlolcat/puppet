@@ -4,9 +4,11 @@ class bro(
   $pfring_installdir    =    "/opt/pfring",
   $brotmp_dir           =    "/var/tmp/bro",
   $broinstall_dir       =    "/nsm/bro",
+  $bro_workers          =    undef,
 
 )inherits bro::params {
 	class { 'bro::prereqs' :  } ->
   class { 'bro::pfring'  :  } ->
-  class { 'bro::bro'     :  }
+  class { 'bro::bro'     :  } ->
+  class { 'bro::config'  :  }
 }
