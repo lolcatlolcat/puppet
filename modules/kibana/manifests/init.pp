@@ -11,6 +11,7 @@ class kibana(
   $nginx_user               = 'www-data',
 
 ){
+  include ::elasticsearch::prereq
   class { 'kibana::nginx' : } ->
   class { 'kibana::install' : } ->
   class { 'kibana::configs' : } ->
