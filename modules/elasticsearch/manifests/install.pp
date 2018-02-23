@@ -10,7 +10,7 @@ class elasticsearch::install inherits elasticsearch {
           ensure  => installed,
         }
     }
-    'rhel': {
+    'redhat': {
       file { '/var/tmp/elasticsearch.rpm' :
         source  => 'puppet:///modules/elasticsearch/elasticsearch.rpm',
         ensure  => present,

@@ -13,7 +13,7 @@ class logstash::install inherits logstash {
           ensure  => installed,
         }
     }
-    'rhel': {
+    'redhat': {
       file { '/var/tmp/logstash.rpm' :
         source  => 'puppet:///modules/logstash/logstash.rpm',
         ensure  => present,

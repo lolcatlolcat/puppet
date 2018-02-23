@@ -10,7 +10,7 @@ class logstash::service inherits logstash {
           enable => true,
         }
     }
-    'rhel': {
+    'redhat': {
       service { 'redis' :
         ensure  => running,
         enable  => true,

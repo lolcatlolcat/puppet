@@ -5,7 +5,7 @@ class logstash::redis inherits logstash {
           ensure => installed,
         }
     }
-    'rhel': {
+    'redhat': {
       package { 'redis' :
         ensure  => installed,
       }

@@ -10,7 +10,7 @@ class kibana::install inherits kibana {
           ensure => installed,
         }
     }
-    'rhel': {
+    'redhat': {
       file { '/var/tmp/kibana.rpm' :
         source  => 'puppet:///modules/kibana/kibana.rpm',
         ensure  => present,
