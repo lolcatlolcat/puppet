@@ -16,5 +16,6 @@ class elasticsearch (
 ){
     class { 'elasticsearch::install' : } ->
     class { 'elasticsearch::configs' : } ->
-    class { 'elasticsearch::service' : }
+    class { 'elasticsearch::service' : } ->
+    class { 'elasticsearch::curator' : }
 }
