@@ -10,8 +10,7 @@ class elasticsearch::curator inherits elasticsearch {
           source  =>  File['/var/tmp/curator.deb'],
           ensure  =>  'installed',
         } ->
-        cron  { 'curatorcron':
-          name          =>  'curatorcron',
+        cron  { 'curatorcron.sh':
           ensure        =>  present,
           command       =>  "curator --config curator.yml",
           environment   =>  'PATH=/bin:/sbin:/usr/bin:/usr/sbin',
