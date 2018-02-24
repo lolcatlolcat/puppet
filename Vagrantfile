@@ -9,8 +9,6 @@ Vagrant.configure("2") do |config|
   e.vm.box_check_update = false
   e.vm.box              = "puppetlabs/centos-7.0-64-puppet"
   e.vm.hostname         = "elastic"
-  e.vm.provision "shell",
-    inline: "apt install -y vim >/dev/null 2>&1"
   e.vm.provider "virtualbox" do |v|
     v.memory = 2048
     v.cpus = 4
