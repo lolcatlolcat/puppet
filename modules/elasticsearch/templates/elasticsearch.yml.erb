@@ -1,11 +1,11 @@
 ### THIS FILE IS MANAGED BY PUPPET###
 # ======================== Elasticsearch Configuration =========================
 # ---------------------------------- Cluster -----------------------------------
-cluster.name: <%= @elasticsearch_clustername %>
+cluster.name: <%= @es_clustername %>
 # ------------------------------------ Node ------------------------------------
-node.name: <%= @elasticsearch_nodename %>
+node.name: <%= @es_nodename %>
 #
-node.attr.rack: <%= @elasticsearch_noderack %>
+node.attr.rack: <%= @es_noderack %>
 node.master: <%= @es_master_node %>
 node.data: <%= @es_data_node %>
 node.ingest: <%= @es_ingest_node %>
@@ -17,15 +17,15 @@ path:
     logs: /var/log/elasticsearch
 #
 # ----------------------------------- Memory -----------------------------------
-bootstrap.memory_lock: <%= @elasticsearch_memorylock %>
+bootstrap.memory_lock: <%= @es_memorylock %>
 # ---------------------------------- Network -----------------------------------
-network.host: <%= @elasticsearch_networkhost %>
-http.port: <%= @elasticsearch_httpport %>
+network.host: <%= @es_networkhost %>
+http.port: <%= @es_httpport %>
 # --------------------------------- Discovery ----------------------------------
-discovery.zen.ping.unicast.hosts: [<%= @elasticsearch_unicast %>]
-discovery.zen.minimum_master_nodes: <%= @elasticsearch_minimum_masternodes %>
+discovery.zen.ping.unicast.hosts: [<%= @es_unicast %>]
+discovery.zen.minimum_master_nodes: <%= @es_minimum_masternodes %>
 # ---------------------------------- Gateway -----------------------------------
-gateway.recover_after_nodes: <%= @elasticsearch_recoverafter %>
+gateway.recover_after_nodes: <%= @es_recoverafter %>
 #---- Various -----------------------------------
 # Require explicit names when deleting indices:
 #
