@@ -12,12 +12,22 @@ class elasticsearch::curator inherits elasticsearch {
         } ->
         cron  { 'curatorcron.sh':
           ensure        =>  present,
-          command       =>  "curator --config curator.yml",
+          command       =>  "curator --config /etc/elasticsearch/curator_config.yml /etc/elasticsearch/curator_action.yml",
           environment   =>  'PATH=/bin:/sbin:/usr/bin:/usr/sbin',
           hour          =>  0,
           minute        =>  0,
           weekday       =>  'Monday',
-        } 
+        } ->
+       file { 'curator config':
+        content         =>  template('elasticsearch/curatorconfig.yml.erb'),
+        path            =>  "/etc/elasticsearch/curator_config.yml",
+        ensure          =>  present,
+       } -> 
+       file { 'curator action':
+        content         =>  template('elasticsearch/curatoraction.yml.erb'),
+        path            =>  "/etc/elasticsearch/curator_action.yml",
+        ensure          =>  present,
+       }
     }
     'default': {
       fail("${::operatingsystem} not supported")

@@ -1,0 +1,17 @@
+---
+###FILE IS MANAGED BY PUPPET###
+actions:
+  1:
+    action: delete_indices
+    description: >-
+      Weekly cleaning of all indices for range maintenance.
+    options:
+      ignore_empty_list: True
+      disable_action: False
+    filters:
+    - filtertype: age
+      source: name
+      direction: older
+      timestring: '%Y.%m.%d'
+      unit: minutes
+      unit_count: 1
