@@ -9,12 +9,11 @@ Vagrant.configure("2") do |config|
   e.vm.box_check_update = false
   e.vm.box              = "puppetlabs/ubuntu-16.04-64-puppet"
   e.vm.hostname         = "elastic"
-  e.vm.provision "shell",
-    inline: "apt install -y vim >/dev/null 2>&1"
   e.vm.provider "virtualbox" do |v|
     v.memory = 2048
     v.cpus = 4
     v.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    v.gui = true
     end
   e.vm.network "forwarded_port", guest: 9200, host: 9200, host_ip: "127.0.0.1"
   e.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
