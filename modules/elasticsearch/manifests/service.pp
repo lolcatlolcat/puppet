@@ -3,5 +3,4 @@ class elasticsearch::service inherits elasticsearch {
     enable  => true,
     ensure  => running,
   }
-
 }

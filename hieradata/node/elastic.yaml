@@ -2,3 +2,7 @@
 classes:
   - roles::elastic
   - elasticsearch
+elasticsearch::es_unicast: '127.0.0.1'
+elasticsearch::es_master_node: true
+elasticsearch::es_data_node: true
+elasticsearch::es_ingest_node: true
