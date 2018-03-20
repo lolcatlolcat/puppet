@@ -1,0 +1,20 @@
+output {
+  if "sep" in [tags] {
+    elasticsearch {
+      hosts => "<%= @es_sep_output %>"
+      index => "sep-%{+YYYY.MM.dd}"
+    }
+  }
+  if "bro" in [tags] {
+    elasticsearch {
+      hosts => "<%= @es_bro_output %>"
+      index => "bro-%{+YYYY.MM.dd}"
+    }
+  }
+  if [type] == "pfsense" {
+    elasticsearch {
+      hosts => "<%= @es_pfsense_output %>"
+      index => "pfsense-%{+YYYY.MM.dd}"
+    }
+  }
+}

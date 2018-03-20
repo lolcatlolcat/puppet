@@ -14,6 +14,9 @@ class logstash(
     $logstash_logpath                     =   '/var/log/logstash',
     $logstash_xms		                      =   '2g',
     $logstash_xmx		                      =   '2g',
+    $es_bro_output                        =   '127.0.0.1:9200',
+    $es_pfsense_output                    =   $es_bro_output,
+    $es_sep_output                        =   $es_bro_output,
     
 ){
     class { 'logstash::redis' :  } ->
