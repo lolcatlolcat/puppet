@@ -1,3 +1,4 @@
 .git
 .vagrant
 _config.yml
+logstash.deb
